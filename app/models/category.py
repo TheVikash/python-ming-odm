@@ -1,9 +1,9 @@
-
-from ming import schema
-from ming.odm import MappedClass
-from ming.odm import FieldProperty, ForeignIdProperty
+"""
+Category class  
+"""
 from datetime import datetime
-from ming.odm import Mapper
+from ming import schema
+from ming.odm import FieldProperty,MappedClass,Mapper
 
 
 class Category(MappedClass):
@@ -20,7 +20,3 @@ class Category(MappedClass):
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
 Mapper.compile_all()
-
-
-
-
