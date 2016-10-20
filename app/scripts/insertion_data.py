@@ -1,15 +1,22 @@
 
 from app.models.category import Category
-from ming import create_datastore
-from ming.odm import ThreadLocalODMSession
+from app.config import SESSION as session
+from app.sample_data import CATEGORIES
+
 
 """
 scripts functions 
 """
 
-session = ThreadLocalODMSession(bind=create_datastore('mongodb://localhost:27017/tutorial'))
 def category_insertion():
-    category = Category(session,"Science")
-    print(category)
+
+    for category in CATEGORIES:
+        obj = Category(name=category['name'] )
+        print(obj)
+    print(session)    
+    session.flush()
+    session.clear()
+
+
 
 
